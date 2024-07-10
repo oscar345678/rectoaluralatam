@@ -1,0 +1,56 @@
+import java. util.Scanner;
+
+public class ConversorMonedas {
+
+    public static void main(String[] args) {
+        // Definir las tasas de cambio (ejemplo)
+        double tasaCambioDolarCOP = 4900.0;
+        double tasaCambioEuroCOP = 5200.0;
+
+        // Scanner para leer la entrada del usuario
+        Scanner entrada = new Scanner(System.in);
+
+        // Mostrar el menú de opciones
+        System.out.println("\n**Convertidor de Monedas**");
+        System.out.println("1. Dólar a Peso Colombiano");
+        System.out.println("2. Euro a Peso Colombiano");
+        System.out.println("3. Salir");
+        System.out.print("Seleccione una opción: ");
+
+        // Obtener la opción elegida por el usuario
+        int opcion = entrada.nextInt();
+
+        // Procesar la opción seleccionada
+        switch (opcion) {
+            case 1:
+                convertirDolarCOP(tasaCambioDolarCOP, entrada);
+                break;
+            case 2:
+                convertirEuroCOP(tasaCambioEuroCOP, entrada);
+                break;
+            case 3:
+                System.out.println("Saliendo del convertidor...");
+                break;
+            default:
+                System.out.println("Opción inválida. Intente nuevamente.");
+        }
+
+        entrada.close();
+    }
+
+    private static void convertirDolarCOP(double tasaCambio, Scanner entrada) {
+        System.out.print("Ingrese la cantidad en dólares: ");
+        double cantidadDolares = entrada.nextDouble();
+
+        double cantidadCOP = cantidadDolares * tasaCambio;
+        System.out.println(cantidadDolares + " USD equivale a " + cantidadCOP + " COP");
+    }
+
+    private static void convertirEuroCOP(double tasaCambio, Scanner entrada) {
+        System.out.print("Ingrese la cantidad en euros: ");
+        double cantidadEuros = entrada.nextDouble();
+
+        double cantidadCOP = cantidadEuros * tasaCambio;
+        System.out.println(cantidadEuros + " EUR equivale a " + cantidadCOP + " COP");
+    }
+}
